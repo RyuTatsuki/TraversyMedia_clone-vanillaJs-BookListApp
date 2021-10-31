@@ -93,6 +93,9 @@ class Store {
         books.splice(index, 1);
       };
     });
+
+    // Reset local storage with book removed
+    localStorage.setItem('books', JSON.stringify(books));
   };
 };
 
