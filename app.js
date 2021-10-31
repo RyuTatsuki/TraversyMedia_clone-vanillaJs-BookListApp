@@ -9,7 +9,7 @@ class Book {
 
 // UI class: Handle UI Tasks
 class UI {
-  static displayBook() {
+  static displayBooks() {
     const StoredBooks = [
       {
         title: 'Book One',
@@ -47,6 +47,7 @@ class UI {
 // Store Class: Handle Storage
 
 // Event: Display Books
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 // Event: Add a Book
 
