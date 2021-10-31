@@ -4,8 +4,8 @@ class Book {
     this.title = title;
     this.author = author;
     this.isbn = isbn;
-  }
-}
+  };
+};
 
 // UI class: Handle UI Tasks
 class UI {
@@ -26,7 +26,7 @@ class UI {
     const books = StoredBooks;
 
     books.forEach((book) => UI.addBookToList(book));
-  }
+  };
 
   static addBookToList(book) {
     const list = document.querySelector('#book-list');
@@ -41,14 +41,20 @@ class UI {
     `;
 
     list.appendChild(row);
-  }
+  };
+
+  static deleteBook(el) {
+    if(el.classList.contains('delete')) {
+      el.parentElement.parentElement.remove();
+    };
+  };
 
   static clearFields() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('#isbn').value = '';
-  }
-}
+  };
+};
 
 // Store Class: Handle Storage
 
@@ -77,3 +83,6 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 
 // Event: Remove a Book
+document.querySelector('#book-list').addEventListener('click', (e) => {
+  UI.deleteBook(e.target);
+});
