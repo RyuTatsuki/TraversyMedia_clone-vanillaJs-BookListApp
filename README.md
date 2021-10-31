@@ -10,4 +10,4 @@ Traversy Media - JavaScript BookList App | No Frameworks
 
 > Codepen https://codepen.io/bradtraversy/pen/OrmKWZ
 
-### **Thanks a lot to Traversy Media!!**
+### **Thanks a lot Traversy Media!!**
