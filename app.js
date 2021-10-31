@@ -68,6 +68,26 @@ class UI {
 };
 
 // Store Class: Handle Storage
+class Store {
+  static getBooks() {
+    let books;
+    if(localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    };
+
+    return books;
+  };
+
+  static addBook(book) {
+
+  };
+
+  static removeBook(isbn) {
+
+  };
+};
 
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
