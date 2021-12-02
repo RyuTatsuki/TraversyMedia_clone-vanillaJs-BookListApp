@@ -4,8 +4,8 @@ class Book {
     this.title = title;
     this.author = author;
     this.isbn = isbn;
-  };
-};
+  }
+}
 
 // UI class: Handle UI Tasks
 class UI {
@@ -13,7 +13,7 @@ class UI {
     const books = Store.getBooks();
 
     books.forEach((book) => UI.addBookToList(book));
-  };
+  }
 
   static addBookToList(book) {
     const list = document.querySelector('#book-list');
@@ -28,13 +28,13 @@ class UI {
     `;
 
     list.appendChild(row);
-  };
+  }
 
   static deleteBook(el) {
     if(el.classList.contains('delete')) {
       el.parentElement.parentElement.remove();
-    };
-  };
+    }
+  }
 
   static showAlert(message, className) {
     const div = document.createElement('div');
@@ -45,14 +45,14 @@ class UI {
     container.insertBefore(div, form);
     // Vanish in 3 seconds
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
-  };
+  }
 
   static clearFields() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('#isbn').value = '';
-  };
-};
+  }
+}
 
 // Store Class: Handle Storage
 class Store {
@@ -62,29 +62,29 @@ class Store {
       books = [];
     } else {
       books = JSON.parse(localStorage.getItem('books'));
-    };
+    }
 
     return books;
-  };
+  }
 
   static addBook(book) {
     const books = Store.getBooks();
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
-  };
+  }
 
   static removeBook(isbn) {
     const books = Store.getBooks();
     books.forEach((book, index) => {
       if(book.isbn === isbn) {
         books.splice(index, 1);
-      };
+      }
     });
 
     // Reset local storage with book removed
     localStorage.setItem('books', JSON.stringify(books));
-  };
-};
+  }
+}
 
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
@@ -117,7 +117,7 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
     // Clear fields
     UI.clearFields();
-  };
+  }
 });
 
 // Event: Remove a Book
